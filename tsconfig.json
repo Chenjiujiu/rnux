@@ -2,7 +2,11 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "rnux": ["./src/index"]
+      "rnux": ["./src/index"],
+      "rnux/theme": ["./src/theme/index"],
+      "rnux/components": ["./src/components/index"],
+      "rnux/utils": ["./src/utils/index"],
+      "rnux/hooks": ["./src/hooks/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

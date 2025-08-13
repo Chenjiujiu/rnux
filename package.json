@@ -1,6 +1,6 @@
 {
   "name": "rnux",
-  "version": "0.1.0",
+  "version": "0.0.14",
   "description": "React Native UX",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -9,6 +9,26 @@
       "source": "./src/index.tsx",
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
+    },
+    "./theme": {
+      "source": "./src/theme/index.tsx",
+      "types": "./lib/typescript/src/theme/index.d.ts",
+      "default": "./lib/module/theme/index.js"
+    },
+    "./components": {
+      "source": "./src/components/index.tsx",
+      "types": "./lib/typescript/src/components/index.d.ts",
+      "default": "./lib/module/components/index.js"
+    },
+    "./utils": {
+      "source": "./src/utils/index.tsx",
+      "types": "./lib/typescript/src/utils/index.d.ts",
+      "default": "./lib/module/utils/index.js"
+    },
+    "./hooks": {
+      "source": "./src/hooks/index.tsx",
+      "types": "./lib/typescript/src/hooks/index.d.ts",
+      "default": "./lib/module/hooks/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -65,6 +85,7 @@
     "@eslint/js": "^9.22.0",
     "@evilmartians/lefthook": "^1.5.0",
     "@react-native-community/cli": "15.0.0-alpha.2",
+    "@react-native-vector-icons/icomoon": "^12.2.0",
     "@react-native/babel-preset": "0.79.2",
     "@react-native/eslint-config": "^0.78.0",
     "@release-it/conventional-changelog": "^9.0.2",
@@ -80,13 +101,18 @@
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-builder-bob": "^0.40.8",
+    "react-native-modal": "^14.0.0-rc.1",
+    "react-native-reanimated": "^4.0.2",
     "release-it": "^17.10.0",
     "turbo": "^1.10.7",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
+    "@react-native-vector-icons/icomoon": ">=12.0.0-0",
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-modal": "*",
+    "react-native-reanimated": ">=3.0.0-0"
   },
   "workspaces": [
     "example"
@@ -128,7 +154,13 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": false
+    "useTabs": false,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "jsxBracketSameLine": false,
+    "printWidth": 120,
+    "insertPragma": true,
+    "arrowParens": "avoid"
   },
   "react-native-builder-bob": {
     "source": "src",
