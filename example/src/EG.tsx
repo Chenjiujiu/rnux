@@ -2,7 +2,7 @@
 /** @format */
 
 import { View, StyleSheet } from 'react-native';
-import { Icon, Loading, Text } from 'rnux';
+import { Divider, Icon, Loading, Text } from 'rnux';
 
 export default function EG() {
   return (
@@ -14,6 +14,9 @@ export default function EG() {
       <Text size="h5" color={'errorLight'}>测试</Text>
       <Icon name={'add'} />
       <Loading />
+      <Divider fullWidth={true} gap={0} color={'errorLight'}>
+        <Text color={'errorLight'}>123123</Text>
+      </Divider>
     </View>
   );
 }
