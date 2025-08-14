@@ -1,8 +1,19 @@
 /** @format */
 /** @format */
 
-import { View, StyleSheet } from 'react-native';
-import { Divider, Icon, Loading, Text } from 'rnux';
+import { StyleSheet, View } from 'react-native';
+import {
+  Divider,
+  FinalSaleBadge,
+  FlashBadge,
+  FlashSaleBadge,
+  Icon,
+  Loading,
+  NawBadge,
+  SalePercentBadge,
+  SpeedyBadge,
+  Text,
+} from 'rnux';
 
 export default function EG() {
   return (
@@ -11,12 +22,20 @@ export default function EG() {
       <Text size="h2">测试</Text>
       <Text size="h3">测试</Text>
       <Text size="h4">测试</Text>
-      <Text size="h5" color={'errorLight'}>测试</Text>
+      <Text size="h5" color={'errorLight'}>
+        测试
+      </Text>
       <Icon name={'add'} />
       <Loading />
       <Divider fullWidth={true} gap={0} color={'errorLight'}>
         <Text color={'errorLight'}>123123</Text>
       </Divider>
+      <NawBadge />
+      <SpeedyBadge />
+      <SalePercentBadge percent={20} />
+      <FlashBadge remainingTime={20000000} />
+      <FlashSaleBadge />
+      <FinalSaleBadge />
     </View>
   );
 }

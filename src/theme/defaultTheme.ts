@@ -11,10 +11,10 @@ const defaultTheme = {
     // #9E6733
     primary: '#9E6733',
     /*功能色*/
-    // #D63D39
-    errorLight: '#D63D39',
-    // ED4432
-    error: '#ED4432',
+    // #ED4432
+    errorLight: '#ED4432',
+    // D63D39
+    error: '#D63D39',
     // #F5BF55
     warningLight: '#F5BF55',
     // #FF8742
