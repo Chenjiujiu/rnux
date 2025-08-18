@@ -3,16 +3,17 @@
 
 import { StyleSheet, View } from 'react-native';
 import {
+  CurveBadge,
   Divider,
   FinalSaleBadge,
-  FlashBadge,
   FlashSaleBadge,
   Icon,
   Loading,
   NawBadge,
-  SalePercentBadge,
+  PercentOffBadge,
   SpeedyBadge,
   Text,
+  TimeSaleBadge,
 } from 'rnux';
 
 export default function EG() {
@@ -31,11 +32,12 @@ export default function EG() {
         <Text color={'errorLight'}>123123</Text>
       </Divider>
       <NawBadge />
+      <PercentOffBadge percent={20} />
       <SpeedyBadge />
-      <SalePercentBadge percent={20} />
-      <FlashBadge remainingTime={20000000} />
       <FlashSaleBadge />
       <FinalSaleBadge />
+      <TimeSaleBadge time={20000000} />
+      <CurveBadge />
     </View>
   );
 }
