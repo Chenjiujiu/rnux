@@ -41,22 +41,23 @@ const Button: React.FC<PropsType> = React.memo(
     children,
   }) => {
     const theme = useTheme();
-    const { textColor, fontSize, ...dynamicStyle } = useMemo(() => {
+    const { textColor, fontSize, dynamicStyle } = useMemo(() => {
       const colorSchemeConfig = theme?.button?.variant?.[variant] || theme?.button?.variant?.primary;
       const sizeStyle = theme?.button?.sizeStyle?.[size] || theme?.button?.sizeStyle?.md;
       const radius = borderRadius ?? theme.button.borderRadius;
       return {
-        backgroundColor: colorSchemeConfig.background,
-        borderRadius: radius,
-        borderWidth: variant === 'outline' ? 1 : 0,
-        borderColor: colorSchemeConfig.text,
-        width: width || sizeStyle.width,
-        height: height || sizeStyle.height,
         textColor: colorSchemeConfig.text,
         fontSize: sizeStyle.fontSize,
-      } as const;
+        dynamicStyle: {
+          backgroundColor: colorSchemeConfig.background,
+          borderRadius: radius,
+          borderWidth: variant === 'outline' ? 1 : 0,
+          borderColor: colorSchemeConfig.text,
+          width: width || sizeStyle.width,
+          height: height || sizeStyle.height,
+        } as const,
+      };
     }, [size, width, height, borderRadius, variant, theme]);
-
     return (
       <Pressable
         onPress={onPress}

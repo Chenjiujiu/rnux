@@ -16,8 +16,13 @@ import {
   Text,
   TimeSaleBadge,
 } from 'rnux';
+import { Checkbox } from '../../src/components/base/Checkbox';
+import { useState } from 'react';
+import { Radio } from '../../src/components/base/Radio';
 
 export default function EG() {
+  const [checked, setChecked] = useState(false);
+
   return (
     <View style={styles.container}>
       <Text size="h1">测试</Text>
@@ -42,6 +47,8 @@ export default function EG() {
       <Button variant={'outline'} size={'sm'} borderRadius={10} width={20} height={20}>
         <Icon name={'add'} />
       </Button>
+      <Checkbox defaultChecked={checked} onChange={val => setChecked(val)} />
+      <Radio checked={checked} onChange={val => setChecked(val)} />
     </View>
   );
 }
