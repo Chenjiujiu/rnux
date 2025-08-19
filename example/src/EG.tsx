@@ -3,6 +3,7 @@
 
 import { StyleSheet, View } from 'react-native';
 import {
+  Button,
   CurveBadge,
   Divider,
   FinalSaleBadge,
@@ -11,7 +12,7 @@ import {
   Loading,
   NawBadge,
   PercentOffBadge,
-  SpeedyBadge,
+  SpeedyShippingBadge,
   Text,
   TimeSaleBadge,
 } from 'rnux';
@@ -33,19 +34,22 @@ export default function EG() {
       </Divider>
       <NawBadge />
       <PercentOffBadge percent={20} />
-      <SpeedyBadge />
+      <SpeedyShippingBadge />
       <FlashSaleBadge />
       <FinalSaleBadge />
       <TimeSaleBadge time={20000000} />
       <CurveBadge />
+      <Button variant={'outline'} size={'sm'} borderRadius={10} width={20} height={20}>
+        <Icon name={'add'} />
+      </Button>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });

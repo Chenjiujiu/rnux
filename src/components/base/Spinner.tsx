@@ -10,7 +10,6 @@ type colorType = keyof ThemeType['colors'];
 type PropsType = {
   size?: sizeType | number;
   color?: colorType | string;
-  text?: string;
   duration?: number;
 };
 
@@ -39,7 +38,7 @@ const Spinner: React.FC<PropsType> = React.memo(({ size = 'small', color = 'blac
         easing: Easing.linear,
       }),
       -1, // 无限循环
-      false,
+      false
     );
   }, [duration, spin]);
 

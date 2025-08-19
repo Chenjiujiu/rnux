@@ -67,6 +67,44 @@ const defaultTheme = {
     primary: 16,
     small: 8,
   },
+  button: {
+    variant: {
+      primary: {
+        text: '#E7CDBB',
+        background: '#111111',
+      },
+      secondary: {
+        text: '#333333',
+        background: '#F8F1EB',
+      },
+      outline: {
+        text: '#000000',
+        background: undefined,
+      },
+      text: {
+        text: '#000000',
+        background: undefined,
+      },
+    },
+    sizeStyle: {
+      sm: {
+        height: 30,
+        width: 80,
+        fontSize: 14,
+      },
+      md: {
+        height: 38,
+        width: 150,
+        fontSize: 16,
+      },
+      lg: {
+        height: 42,
+        width: 200,
+        fontSize: 18,
+      },
+    },
+    borderRadius: 0,
+  },
 };
 
 export { defaultTheme };

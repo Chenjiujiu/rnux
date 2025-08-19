@@ -93,7 +93,7 @@ const Text: React.FC<PropsType> = React.memo(
         {children}
       </NativeText>
     );
-  },
+  }
 );
 const weightStyles = StyleSheet.create({
   // 300

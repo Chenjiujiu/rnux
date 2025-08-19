@@ -6,7 +6,7 @@ export {
   Badge,
   NawBadge,
   PercentOffBadge,
-  SpeedyBadge,
+  SpeedyShippingBadge,
   FlashSaleBadge,
   FinalSaleBadge,
   TimeSaleBadge,
@@ -14,4 +14,5 @@ export {
 } from './base/Badge';
 export { Icon } from './base/Icon';
 export type { IconName } from './base/Icon';
+export { Button } from './base/Button';
 export { Loading } from './Loading';

@@ -77,7 +77,7 @@ const PercentOffBadge: React.FC<{ percent: number }> = memo(({ percent }) => (
   </Badge>
 ));
 // 预设SpeedyBadge徽章
-const SpeedyBadge: React.FC<{ tag?: string }> = memo(({ tag = 'Speedy Shipping' }) => (
+const SpeedyShippingBadge: React.FC<{ tag?: string }> = memo(({ tag = 'Speedy Shipping' }) => (
   <Badge background={'#F0E6E0'}>
     <>
       <Icon name={'flash'} color={'#7C5528'} size={10} />
@@ -119,4 +119,13 @@ const TimeSaleBadge: React.FC<{ time: number }> = memo(({ time = 0 }) => {
   );
 });
 
-export { Badge, NawBadge, PercentOffBadge, SpeedyBadge, FlashSaleBadge, FinalSaleBadge, TimeSaleBadge, CurveBadge };
+export {
+  Badge,
+  NawBadge,
+  PercentOffBadge,
+  SpeedyShippingBadge,
+  FlashSaleBadge,
+  FinalSaleBadge,
+  TimeSaleBadge,
+  CurveBadge,
+};
