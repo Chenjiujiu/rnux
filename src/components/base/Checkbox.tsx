@@ -13,11 +13,24 @@ type PropsType = {
   size?: number;
   disabled?: boolean;
   color?: colorType | string;
+  vertical?: boolean; // 是否垂直排列
+  children?: React.ReactNode;
+  hitSlop?: number | { top: number; bottom: number; left: number; right: number };
   onChange?: (checked: boolean) => void;
 };
 
 const Checkbox: React.FC<PropsType> = React.memo(
-  ({ checked: controlledChecked, defaultChecked = false, onChange, disabled = false, size = 16, color = 'black' }) => {
+  ({
+    checked: controlledChecked,
+    defaultChecked = false,
+    onChange,
+    disabled = false,
+    size = 16,
+    color = 'black',
+    hitSlop,
+    vertical = false,
+    children,
+  }) => {
     const theme = useTheme();
     const textColor = theme?.colors?.[color as colorType] ?? color;
     const [internalChecked, setInternalChecked] = useState(controlledChecked ?? defaultChecked);
@@ -33,16 +46,29 @@ const Checkbox: React.FC<PropsType> = React.memo(
     return (
       <Pressable
         onPress={toggle}
-        style={({ pressed }) => [styles.container, { opacity: disabled ? 0.6 : pressed ? 0.85 : 1 }]}
+        hitSlop={hitSlop}
+        style={({ pressed }) => [
+          styles.container,
+          vertical && styles.vertical,
+          { opacity: disabled ? 0.6 : pressed ? 0.85 : 1 },
+        ]}
       >
         <Icon name={checked ? 'checkbox-marked-fill' : 'checkbox'} size={size} color={textColor} />
+        {children}
       </Pressable>
     );
   }
 );
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', alignItems: 'center' },
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6, // 间距
+  },
+  vertical: {
+    flexDirection: 'column',
+  },
 });
 
 export { Checkbox };

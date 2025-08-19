@@ -21,8 +21,9 @@ type PropsType = {
   width?: DimensionValue;
   height?: DimensionValue;
   borderRadius?: DimensionValue;
+  hitSlop?: number | { top: number; bottom: number; left: number; right: number };
   onPress?: (event: GestureResponderEvent) => void;
-  children?: React.ReactNode;
+  children?: React.ReactNode | string;
 };
 
 const Button: React.FC<PropsType> = React.memo(
@@ -37,6 +38,7 @@ const Button: React.FC<PropsType> = React.memo(
     width,
     height,
     borderRadius,
+    hitSlop,
     onPress,
     children,
   }) => {
@@ -62,6 +64,7 @@ const Button: React.FC<PropsType> = React.memo(
       <Pressable
         onPress={onPress}
         disabled={disabled || loading}
+        hitSlop={hitSlop}
         style={({ pressed }) => [styles.base, { opacity: disabled || loading ? 0.6 : pressed ? 0.85 : 1 }]}
       >
         <View style={[styles.content, dynamicStyle]}>
