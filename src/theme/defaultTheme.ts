@@ -105,6 +105,30 @@ const defaultTheme = {
     },
     borderRadius: 0,
   },
+  chip: {
+    color: 'black',
+    backgroundColor: undefined,
+    variant: {
+      primary: {
+        color: '#3D3D3D',
+        borderColor: '#E7E7E7',
+      },
+    },
+    sizeStyle: {
+      md: {
+        height: 28,
+        minWidth: 56,
+        paddingHorizontal: 16,
+        borderWidth: 1,
+      },
+      lg: {
+        height: 28,
+        minWidth: undefined,
+        paddingHorizontal: 16,
+        borderWidth: 1.5,
+      },
+    },
+  },
 };
 
 export { defaultTheme };

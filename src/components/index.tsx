@@ -16,3 +16,4 @@ export { Icon } from './base/Icon';
 export type { IconName } from './base/Icon';
 export { Button } from './base/Button';
 export { Loading } from './Loading';
+export { ChipGroup } from './Loading';
