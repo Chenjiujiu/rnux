@@ -8,5 +8,4 @@ const Checkbox: React.FC<PropsType> = React.memo(({}) => {
   return <></>;
 });
 
-
 export { Checkbox };

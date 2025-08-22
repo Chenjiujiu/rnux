@@ -9,13 +9,15 @@
 ## 安装
 1. 依赖库 [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/#installation)
 2. 依赖库 [react-native-modal](https://github.com/react-native-modal/react-native-modal)
-3. 字体 [@react-native-vector-icons/icomoon](https://github.com/oblador/react-native-vector-icons/blob/master/packages/icomoon/README.md)
-4. 本体  [rnux](https://github.com/Chenjiujiu/rnux)
+3. 依赖库 [react-native-gesture-handler](https://docs.swmansion.com/react-native-gesture-handler/docs/#installation)
+4. 字体 [@react-native-vector-icons/icomoon](https://github.com/oblador/react-native-vector-icons/blob/master/packages/icomoon/README.md)
+5. 本体  [rnux](https://github.com/Chenjiujiu/rnux)
 
 ```
 npm install react-native-reanimated // 有额外配置
 npm install react-native-modal
 npm install @react-native-vector-icons/icomoon
+npm install react-native-gesture-handler // 有额外容器
 npm install rnux
 ```
 > 添加字体说明
