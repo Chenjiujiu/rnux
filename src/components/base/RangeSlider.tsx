@@ -35,7 +35,6 @@ const RangeSlider: React.FC<PropsType> = React.memo(
       (l: number, r: number) => {
         const v1 = toValue(l);
         const v2 = toValue(r);
-        console.log('handleChange', v1, v2);
         onChange([v1, v2]);
       },
       [toValue, onChange]
