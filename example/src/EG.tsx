@@ -79,7 +79,7 @@ export default function EG() {
         horizontal={false}
         multiple={true}
       />
-      <RangeSlider min={0} max={102} step={3333} defaultValue={defaultValue} onChange={handleChange} />
+      <RangeSlider min={0} max={102} step={3} defaultValue={defaultValue} onChange={handleChange} />
     </View>
   );
 }
