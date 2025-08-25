@@ -37,8 +37,18 @@ npm install rnux
 
 ### 基础组件
 - [Text 文本](./readme/text.md)
+- [Badge 徽标](./readme/badge.md)
 - [Button 按钮](./readme/button.md)
 - [Spinner 旋转加载](./readme/spinner.md)
+- [Input 输入框](./readme/input.md)
+- [Checkbox 复选框](./readme/checkbox.md)
+- [Radio 单选框](./readme/radio.md)
+- [Divider 分割线](./readme/divider.md)
+- [Chip 标签](./readme/chip.md)
+- [Icon 图标](./readme/icon.md)
+- [rangeSlider 滑动数据](./readme/rangeSlider.md)
 
 ### 扩展组件
 - [Loading 加载](./readme/loading.md)
+- [ChipGroup 标签组](./readme/chipGroup.md)
+- [Stepper 步进器](./readme/stepper.md)

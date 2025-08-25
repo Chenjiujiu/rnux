@@ -8,10 +8,10 @@ type PropsType = {
   options: { label: string; value: string }[];
   value?: string | string[]; // 受控
   defaultValue?: string | string[]; // 非受控
-  onChange?: (val: string | undefined | string[]) => void;
   multiple?: boolean; // 是否多选
   horizontal?: boolean; // 横向滚动
   gap: number; // 间距
+  onChange?: (val: string | undefined | string[]) => void;
 };
 
 const ChipGroup: React.FC<PropsType> = React.memo(
