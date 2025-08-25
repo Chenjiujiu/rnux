@@ -4,8 +4,8 @@ import React from 'react';
 
 type PropsType = {};
 
-const Checkbox: React.FC<PropsType> = React.memo(({}) => {
+const Input: React.FC<PropsType> = React.memo(({}) => {
   return <></>;
 });
 
-export { Checkbox };
+export { Input };

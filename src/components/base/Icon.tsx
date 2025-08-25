@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import type { TextStyle } from 'react-native';
+import type { StyleProp, TextStyle } from 'react-native';
 import createIconSet from '@react-native-vector-icons/icomoon';
 import icoMoonConfig from '../../assets/selection.json';
 import { type ThemeType, useTheme } from '../../theme';
@@ -16,7 +16,7 @@ type PropsType = {
   name: IconName;
   size?: number;
   color?: colorType | string;
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
 };
 
 const Icon: React.FC<PropsType> = ({ name, size, color = 'black', style }) => {

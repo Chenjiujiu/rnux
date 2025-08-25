@@ -1,9 +1,10 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable, type StyleProp, StyleSheet, type TextStyle } from 'react-native';
 import { type ThemeType, useTheme } from '../../theme';
 import { Icon } from '../base/Icon';
+import { Text } from './Text';
 
 type colorType = keyof ThemeType['colors'];
 
@@ -14,9 +15,10 @@ type PropsType = {
   disabled?: boolean;
   color?: colorType | string;
   vertical?: boolean; // 是否垂直排列
-  children?: React.ReactNode;
   hitSlop?: number | { top: number; bottom: number; left: number; right: number };
   onChange?: (checked: boolean) => void;
+  label?: React.ReactNode | string;
+  labelStyle?: StyleProp<TextStyle>;
 };
 
 const Checkbox: React.FC<PropsType> = React.memo(
@@ -29,7 +31,8 @@ const Checkbox: React.FC<PropsType> = React.memo(
     color = 'black',
     hitSlop,
     vertical = false,
-    children,
+    label,
+    labelStyle,
   }) => {
     const theme = useTheme();
     const textColor = theme?.colors?.[color as colorType] ?? color;
@@ -54,7 +57,13 @@ const Checkbox: React.FC<PropsType> = React.memo(
         ]}
       >
         <Icon name={checked ? 'checkbox-marked-fill' : 'checkbox'} size={size} color={textColor} />
-        {children}
+        {label && typeof label === 'string' ? (
+          <Text color={textColor} align={'center'} style={labelStyle}>
+            {label}
+          </Text>
+        ) : (
+          label
+        )}
       </Pressable>
     );
   }

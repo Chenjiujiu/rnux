@@ -21,3 +21,4 @@ export { Radio } from './base/Radio';
 export { Checkbox } from './base/Checkbox';
 export { Loading } from './Loading';
 export { ChipGroup } from './ChipGroup';
+export { Stepper } from './Stepper';

@@ -16,24 +16,24 @@ type PropsType = {
   horizontal?: boolean;
   width?: number;
   height?: number;
-  children?: ReactNode | string;
+  label?: ReactNode | string;
 };
 
 const Badge: React.FC<PropsType> = React.memo(
-  ({ color = 'white', background = 'black', horizontal = false, height, width, wrapperStyle, children }) => {
+  ({ color = 'white', background = 'black', horizontal = false, height, width, wrapperStyle, label }) => {
     const theme = useTheme();
     const badgeColor = theme?.colors?.[color as colorType] ?? color;
     const badgeBackground = theme?.colors?.[background as colorType] ?? background;
     return (
       <View style={[styles.wrapper, { backgroundColor: badgeBackground, height, width }, wrapperStyle]}>
-        {children && typeof children === 'string' ? (
+        {label && typeof label === 'string' ? (
           <Text
             style={[{ color: badgeColor }, horizontal && styles.horizontalText, horizontal && { width: height || 0 }]}
           >
-            {children}
+            {label}
           </Text>
         ) : (
-          children
+          label
         )}
       </View>
     );
@@ -56,46 +56,44 @@ const styles = StyleSheet.create({
 });
 // 预设上新徽章
 const NawBadge: React.FC<{ tag?: string }> = memo(({ tag = 'New' }) => (
-  <Badge color={'#7C5528'} background={'#F0E6E0'}>
-    {tag}
-  </Badge>
+  <Badge color={'#7C5528'} background={'#F0E6E0'} label={tag} />
 ));
 // 预设大码徽章
 const CurveBadge: React.FC<{ tag?: string }> = memo(({ tag = 'CURVE' }) => (
-  <Badge color={'black'} background={'#F8F8F851'} height={50} width={24} horizontal={true}>
-    {tag}
-  </Badge>
+  <Badge color={'black'} background={'#F8F8F851'} height={50} width={24} horizontal={true} label={tag} />
 ));
 // 预设sale徽章
-const PercentOffBadge: React.FC<{ percent: number }> = memo(({ percent }) => (
-  <Badge background={'error'}>
-    <Text color={'white'}>
-      {'-'}
-      {percent}
-      {'%'}
-    </Text>
-  </Badge>
-));
+const PercentOffBadge: React.FC<{ percent: number }> = memo(({ percent }) => {
+  const label = useMemo(() => {
+    return (
+      <Text color={'white'}>
+        {'-'}
+        {percent}
+        {'%'}
+      </Text>
+    );
+  }, [percent]);
+  return <Badge background={'error'} label={label} />;
+});
 // 预设SpeedyBadge徽章
-const SpeedyShippingBadge: React.FC<{ tag?: string }> = memo(({ tag = 'Speedy Shipping' }) => (
-  <Badge background={'#F0E6E0'}>
-    <>
-      <Icon name={'flash'} color={'#7C5528'} size={10} />
-      <Text color={'#7C5528'}>{tag}</Text>
-    </>
-  </Badge>
-));
+const SpeedyShippingBadge: React.FC<{ tag?: string }> = memo(({ tag = 'Speedy Shipping' }) => {
+  const label = useMemo(() => {
+    return (
+      <>
+        <Icon name={'flash'} color={'#7C5528'} size={10} />
+        <Text color={'#7C5528'}>{tag}</Text>
+      </>
+    );
+  }, [tag]);
+  return <Badge background={'#F0E6E0'} label={label} />;
+});
 // 预设Flash Sale徽章
 const FlashSaleBadge: React.FC<{ tag?: string }> = memo(({ tag = 'Flash Sale' }) => (
-  <Badge color={'black'} background={'primaryLight'}>
-    {tag}
-  </Badge>
+  <Badge color={'black'} background={'primaryLight'} label={tag} />
 ));
 // 预设Final Sale徽章
 const FinalSaleBadge: React.FC<{ tag?: string }> = memo(({ tag = 'Final Sale' }) => (
-  <Badge color={'primaryLight'} background={'black'}>
-    {tag}
-  </Badge>
+  <Badge color={'primaryLight'} background={'black'} label={tag} />
 ));
 // 预设flash徽章
 const TimeSaleBadge: React.FC<{ time: number }> = memo(({ time = 0 }) => {
@@ -106,17 +104,15 @@ const TimeSaleBadge: React.FC<{ time: number }> = memo(({ time = 0 }) => {
     const seconds = Math.floor((time % (1000 * 60)) / 1000);
     return `${formatTimePadStart(hours)}H : ${formatTimePadStart(minutes)}M : ${formatTimePadStart(seconds)}S`;
   }, [time]);
-  if (time <= 0) {
-    return null;
-  }
-  return (
-    <Badge background={'black'}>
+  const label = useMemo(() => {
+    return (
       <>
         <Icon name={'flash'} color={'primaryLight'} size={10} />
         <Text color={'primaryLight'}>{timeStr}</Text>
       </>
-    </Badge>
-  );
+    );
+  }, [timeStr]);
+  return <Badge background={'black'} label={label} />;
 });
 
 export {

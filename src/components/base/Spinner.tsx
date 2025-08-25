@@ -4,8 +4,8 @@ import React, { useEffect, useMemo } from 'react';
 import { type ThemeType, useTheme } from '../../theme';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
 
-type sizeType = keyof ThemeType['activity']['size'];
-type borderWidthType = keyof ThemeType['activity']['borderWidth'];
+type sizeType = keyof ThemeType['spinner']['size'];
+type borderWidthType = keyof ThemeType['spinner']['borderWidth'];
 type colorType = keyof ThemeType['colors'];
 type PropsType = {
   size?: sizeType | number;
@@ -18,9 +18,8 @@ const Spinner: React.FC<PropsType> = React.memo(({ size = 'small', color = 'blac
   const spin = useSharedValue(0);
   // 解析大小和颜色
   const { spinSize, spinWeight, spinColor } = useMemo(() => {
-    const resolvedSize = theme?.activity?.size?.[size as sizeType] || (size as number);
-    const resolvedWeight =
-      theme?.activity?.borderWidth?.[size as borderWidthType] || theme?.activity?.borderWidth.medium;
+    const resolvedSize = theme?.spinner?.size?.[size as sizeType] || (size as number);
+    const resolvedWeight = theme?.spinner?.borderWidth?.[size as borderWidthType] || theme?.spinner?.borderWidth.medium;
     const resolvedColor = theme?.colors?.[color as colorType] ?? color;
     return {
       spinSize: resolvedSize,

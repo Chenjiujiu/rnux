@@ -51,7 +51,7 @@ const defaultTheme = {
       h6: 10,
     },
   },
-  activity: {
+  spinner: {
     size: {
       small: 20,
       medium: 40,
@@ -93,14 +93,14 @@ const defaultTheme = {
         fontSize: 14,
       },
       md: {
+        height: 30,
+        width: 80,
+        fontSize: 14,
+      },
+      lg: {
         height: 38,
         width: 150,
         fontSize: 16,
-      },
-      lg: {
-        height: 42,
-        width: 200,
-        fontSize: 18,
       },
     },
     borderRadius: 0,
@@ -128,6 +128,14 @@ const defaultTheme = {
         borderWidth: 1.5,
       },
     },
+  },
+  stepper: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E7E7E7',
+    borderRadius: 0,
+    fontSize: 12,
+    width: 120,
+    height: 20,
   },
 };
 

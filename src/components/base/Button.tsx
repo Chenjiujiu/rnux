@@ -1,10 +1,20 @@
 /** @format */
 
 import React, { useMemo } from 'react';
-import { type DimensionValue, type GestureResponderEvent, Pressable, StyleSheet, View } from 'react-native';
+import {
+  type DimensionValue,
+  type GestureResponderEvent,
+  Pressable,
+  type StyleProp,
+  StyleSheet,
+  type TextStyle,
+  View,
+  type ViewStyle,
+} from 'react-native';
 import { Text } from './Text';
 import { type ThemeType, useTheme } from '../../theme';
 import { Spinner } from './Spinner';
+import { Icon, type IconName } from './Icon';
 
 type ButtonVariant = keyof ThemeType['button']['variant'];
 type ButtonSize = keyof ThemeType['button']['sizeStyle'];
@@ -14,16 +24,18 @@ type PropsType = {
   disabled?: boolean;
   loading?: boolean;
   weight?: weightType;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  icon?: IconName;
   size?: ButtonSize;
   variant?: ButtonVariant;
   width?: DimensionValue;
   height?: DimensionValue;
   borderRadius?: DimensionValue;
   hitSlop?: number | { top: number; bottom: number; left: number; right: number };
+  label?: React.ReactNode | string;
+  style?: StyleProp<ViewStyle>;
+  labelStyle?: StyleProp<TextStyle>;
+  iconStyle?: StyleProp<TextStyle>;
   onPress?: (event: GestureResponderEvent) => void;
-  children?: React.ReactNode | string;
 };
 
 const Button: React.FC<PropsType> = React.memo(
@@ -31,8 +43,8 @@ const Button: React.FC<PropsType> = React.memo(
     disabled = false,
     loading = false,
     weight = 'regular',
-    leftIcon,
-    rightIcon,
+    icon,
+    label,
     size = 'md',
     variant = 'primary',
     width,
@@ -40,7 +52,9 @@ const Button: React.FC<PropsType> = React.memo(
     borderRadius,
     hitSlop,
     onPress,
-    children,
+    style,
+    labelStyle,
+    iconStyle,
   }) => {
     const theme = useTheme();
     const { textColor, fontSize, dynamicStyle } = useMemo(() => {
@@ -67,20 +81,19 @@ const Button: React.FC<PropsType> = React.memo(
         hitSlop={hitSlop}
         style={({ pressed }) => [styles.base, { opacity: disabled || loading ? 0.6 : pressed ? 0.85 : 1 }]}
       >
-        <View style={[styles.content, dynamicStyle]}>
+        <View style={[styles.content, dynamicStyle, style]}>
           {loading ? (
             <Spinner size="small" color={textColor} />
           ) : (
             <>
-              {leftIcon && <View>{leftIcon}</View>}
-              {children && typeof children === 'string' ? (
-                <Text color={textColor} weight={weight} size={fontSize} align={'center'}>
-                  {children}
+              {!!icon && <Icon name={icon as any} color={textColor} size={fontSize} style={iconStyle} />}
+              {label && typeof label === 'string' ? (
+                <Text color={textColor} weight={weight} size={fontSize} align={'center'} style={labelStyle}>
+                  {label}
                 </Text>
               ) : (
-                children
+                label
               )}
-              {rightIcon && <View>{rightIcon}</View>}
             </>
           )}
         </View>
